@@ -1,0 +1,29 @@
+.Button {
+    cursor: pointer;
+    color: var(--text-main);
+    padding: 6px 15px;
+    text-transform: uppercase;
+    width: 100%;
+    border-radius: 3px;
+    
+    &:hover {
+        opacity: 0.8;
+        fill-opacity: 0.8;
+        stroke-opacity: 0.8;
+    }
+}
+
+.primary {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.secondary {
+    background-color: transparent;
+    color: var(--text-dark);
+    border: 1px solid var(--primary-color);;
+}
+
+.fullWidth {
+    width: 100%;
+}

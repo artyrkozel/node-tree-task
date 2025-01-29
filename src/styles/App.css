@@ -1,0 +1,7 @@
+@import url(./reset.scss);
+@import url(./variables.scss);
+
+.App {
+    max-width: 900px;
+    margin: 0 auto;
+}

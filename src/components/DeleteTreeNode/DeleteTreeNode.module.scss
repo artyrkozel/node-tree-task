@@ -1,0 +1,37 @@
+.DeleteTreeNode {
+    padding: 24px;
+    background-color: var(--bg-white);
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        height: 100%;
+        justify-content: flex-start;
+    }
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.btnWrapper {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: right;
+
+    @media (max-width: 768px) {
+        justify-content: center;
+        margin-top: auto;
+    }
+}
+
+.message {
+    margin-bottom: 24px;
+}

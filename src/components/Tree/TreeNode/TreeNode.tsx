@@ -13,6 +13,8 @@ import { EditTreeNode } from '../../EditTreeNode/EditTreeNode';
 import { AddTreeNode } from '../../AddTreeNode/AddTreeNode';
 import { DeleteTreeNode } from '../../DeleteTreeNode/DeleteTreeNode';
 
+const ROOT_NODE_ID = 841;
+
 interface ITreeNode {
     node: ReactTestTreeSiteModelMNode;
     onSelect: (node: ReactTestTreeSiteModelMNode) => void;
@@ -25,6 +27,7 @@ export const TreeNode: FC<ITreeNode> = ({ node, onSelect, selectedNode }) => {
     const [actionType, setActionType] = useState<EActionType>(EActionType.EDIT);
     const [showChildren, setShowChildren] = useState(false);
     const isNodeSelected = selectedNode?.id === node.id;
+    const isRootNode = selectedNode?.id === ROOT_NODE_ID;
 
     const handleClick = () => {
         setShowChildren(!showChildren);
@@ -61,8 +64,12 @@ export const TreeNode: FC<ITreeNode> = ({ node, onSelect, selectedNode }) => {
                     {isNodeSelected && (
                         <div className={styles.actionButtonWrapper}>
                             <IconButton icon={AddIcon} onClick={(e) => handleOpenModal(e, EActionType.CREATE)} />
-                            <IconButton icon={EditIcon} onClick={(e) => handleOpenModal(e, EActionType.EDIT)} />
-                            <IconButton icon={DeleteIcon} onClick={(e) => handleOpenModal(e, EActionType.DELETE)} />
+                            {!isRootNode && (
+                                <IconButton icon={EditIcon} onClick={(e) => handleOpenModal(e, EActionType.EDIT)} />
+                            )}
+                            {!isRootNode && (
+                                <IconButton icon={DeleteIcon} onClick={(e) => handleOpenModal(e, EActionType.DELETE)} />
+                            )}
                         </div>
                     )}
                 </div>
